@@ -14,14 +14,14 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check example_project_python setup.py
-	python -m flake8 example_project_python setup.py
+	python -m black --check ez_scrape setup.py
+	python -m flake8 ez_scrape setup.py
 
 # Alias
 lints: lint
 
 format:  ## run autoformatting with black
-	python -m black example_project_python/ setup.py
+	python -m black ez_scrape/ setup.py
 
 # alias
 fix: format
@@ -33,7 +33,7 @@ check:  ## check assets for packaging
 checks: check
 
 annotate:  ## run type checking
-	python -m mypy ./example_project_python
+	python -m mypy ./ez_scrape
 
 #########
 # TESTS #
@@ -87,12 +87,5 @@ clean: ## clean the repository
 
 ############################################################################################
 
-# Thanks to Francoise at marmelab.com for this
-.DEFAULT_GOAL := help
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-print-%:
-	@echo '$*=$($*)'
 
 .PHONY: develop build install lint lints format fix check checks annotate test coverage show-coverage tests show-version patch minor major dist-build dist-check dist publish deep-clean clean help
