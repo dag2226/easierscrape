@@ -4,6 +4,8 @@ A library for basic web scraping.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Issues](https://img.shields.io/github/issues/dag2226/ez_scrape)](https://github.com/dag2226/ez_scrape/issues)
+[![Build Status](https://github.com/dag2226/ez_scrape/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/dag2226/ez_scrape/actions?query=workflow%3A%22Build+Status%22)
+[![codecov](https://codecov.io/gh/dag2226/ez_scrape/branch/main/graph/badge.svg)](https://codecov.io/gh/dag2226/ez_scrape)
 
 ## Overview
 
