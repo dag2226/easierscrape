@@ -8,5 +8,71 @@ A library for basic web scraping.
 [![codecov](https://codecov.io/gh/dag2226/ez_scrape/branch/main/graph/badge.svg)](https://codecov.io/gh/dag2226/ez_scrape)
 
 ## Overview
+ez_scrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees.
 
-ez_scrape will be a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping I rewrite code with slightly changed parameters to fit the website I scrape from. This library would be a tool that can scrape essentials from websites (tables, links, headers, etc.). I also plan on having the functionality to generate and traverse hyperlink trees.
+## Details
+This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
+- `make`: list available commands
+- `make develop`: install and build this library and its dependencies using `pip`
+- `make build`: build the library using `setuptools`
+- `make lint`: perform static analysis of this library with `flake8` and `black`
+- `make format`: autoformat this library using `black`
+- `make annotate`: run type checking using `mypy`
+- `make test`: run automated tests with `pytest`
+- `make coverage`: run automated tests with `pytest` and collect coverage information
+- `make dist`: package library for distribution
+
+## Basic Usage
+Install with pip: `pip install ez_scrape`
+
+Import needed methods from `ez_scrape` as seen below:
+```
+from ez_scrape import (
+    parse_anchors,
+    parse_files,
+    parse_images,
+    parse_tables,
+    print_tree,
+    tree_gen,
+)
+```
+`parse_anchors`
+- Takes in one argument: The `url` to scrape from
+- Returns a list of anchor tag references
+
+`parse_files`
+- Takes in two arguments:
+  - The `url` to scrape from
+  - A `List` of file extensions to parse (ex: `['pdf', 'txt']`)
+- Downloads results to an `ez_scrape_downloads` folder in working directory
+
+`parse_images`
+- Takes in one argument: The `url` to scrape from
+- Downloads results to an `ez_scrape_downloads` folder in working directory
+
+`parse_tables`
+- Takes in one argument: The `url` to scrape from
+- Downloads results to an `ez_scrape_downloads` folder in working directory
+
+`print_tree`
+- Takes in an [anytree](https://github.com/c0fec0de/anytree) `Node` structure (head of a tree)
+- Prints the tree
+
+`tree_gen`
+- Takes in two arguments;
+  - The head `url` to scrape from
+  - The `maxdepth` to scrape until
+- Returns the head [anytree](https://github.com/c0fec0de/anytree) `Node` of a generated scrape tree
+
+## Command Line Usage
+When installed, you can invoke ez_scrape from the command-line:
+```
+usage: ez_scrape [-h] url depth
+
+positional arguments:
+  url         the url to scrape
+  depth       the depth of the scrape tree
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
