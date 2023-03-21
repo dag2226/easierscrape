@@ -23,12 +23,12 @@ def parse_files(url, filetypes=[]):
         files = soup_url(url).find_all("a", href=compile(r"(." + filetype + ")"))
         file_download_count = 0
         if len(files) != 0:
-            create_dir(join(".", "ez_scrape_downloads", filetype, url2pathname(url)[2:]))
+            create_dir(join(".", "easier_scrape_downloads", filetype, url2pathname(url)[2:]))
         for file in files:
             try:
                 fileUrl = concat_urls(url, file.attrs["href"])
                 urlretrieve(
-                    fileUrl, join(".", "ez_scrape_downloads", filetype, url2pathname(url)[2:], basename(fileUrl))
+                    fileUrl, join(".", "easier_scrape_downloads", filetype, url2pathname(url)[2:], basename(fileUrl))
                 )
                 file_download_count += 1
             except Exception:
@@ -41,11 +41,13 @@ def parse_images(url):
     images = soup_url(url).findAll("img")
     image_download_count = 0
     if len(images) != 0:
-        create_dir(join(".", "ez_scrape_downloads", "images", url2pathname(url)[2:]))
+        create_dir(join(".", "easier_scrape_downloads", "images", url2pathname(url)[2:]))
     for image in images:
         try:
             imageUrl = concat_urls(url, image.attrs["src"])
-            urlretrieve(imageUrl, join(".", "ez_scrape_downloads", "images", url2pathname(url)[2:], basename(imageUrl)))
+            urlretrieve(
+                imageUrl, join(".", "easier_scrape_downloads", "images", url2pathname(url)[2:], basename(imageUrl))
+            )
             image_download_count += 1
         except Exception:
             pass
@@ -60,14 +62,14 @@ def parse_lists(url):
 def parse_tables(url):
     soup_tables = soup_url(url).findAll("table")
     if len(soup_tables) != 0:
-        create_dir(join(".", "ez_scrape_downloads", "tables", url2pathname(url)[2:]))
+        create_dir(join(".", "easier_scrape_downloads", "tables", url2pathname(url)[2:]))
         tables = read_html(url)
         for i in range(0, len(tables)):
             if soup_tables[i].has_attr("id"):
                 table_name = soup_tables["id"]
             else:
                 table_name = str(uuid4())
-            tables[i].to_csv(join(".", "ez_scrape_downloads", "tables", url2pathname(url)[2:], table_name + ".csv"))
+            tables[i].to_csv(join(".", "easier_scrape_downloads", "tables", url2pathname(url)[2:], table_name + ".csv"))
     return len(soup_tables)
 
 

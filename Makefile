@@ -14,14 +14,14 @@ install:  ## install library
 # LINTS #
 #########
 lint:  ## run static analysis with flake8
-	python -m black --check ez_scrape setup.py
-	python -m flake8 ez_scrape setup.py
+	python -m black --check easierscrape setup.py
+	python -m flake8 easierscrape setup.py
 
 # Alias
 lints: lint
 
 format:  ## run autoformatting with black
-	python -m black ez_scrape/ setup.py
+	python -m black easierscrape/ setup.py
 
 # alias
 fix: format
@@ -33,16 +33,16 @@ check:  ## check assets for packaging
 checks: check
 
 annotate:  ## run type checking
-	python -m mypy ./ez_scrape
+	python -m mypy ./easierscrape
 
 #########
 # TESTS #
 #########
 test: ## clean and run unit tests
-	python -m pytest -v ez_scrape/tests
+	python -m pytest -v easierscrape/tests
 
 coverage:  ## clean and run unit tests with coverage
-	python -m pytest -v ez_scrape/tests --cov=ez_scrape --cov-branch --cov-fail-under=75 --cov-report term-missing
+	python -m pytest -v easierscrape/tests --cov=easierscrape --cov-branch --cov-fail-under=75 --cov-report term-missing
 
 # Alias
 tests: test

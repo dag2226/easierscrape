@@ -1,4 +1,4 @@
-graft ez_scrape
+graft easierscrape
 
 include LICENSE
 include *.md
