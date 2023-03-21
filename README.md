@@ -1,14 +1,14 @@
-# ez_scrape
+# easierscrape
 
 A library for basic web scraping.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Issues](https://img.shields.io/github/issues/dag2226/ez_scrape)](https://github.com/dag2226/ez_scrape/issues)
-[![Build Status](https://github.com/dag2226/ez_scrape/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/dag2226/ez_scrape/actions?query=workflow%3A%22Build+Status%22)
-[![codecov](https://codecov.io/gh/dag2226/ez_scrape/branch/main/graph/badge.svg)](https://codecov.io/gh/dag2226/ez_scrape)
+[![Issues](https://img.shields.io/github/issues/dag2226/easierscrape)](https://github.com/dag2226/easierscrape/issues)
+[![Build Status](https://github.com/dag2226/easierscrape/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/dag2226/easierscrape/actions?query=workflow%3A%22Build+Status%22)
+[![codecov](https://codecov.io/gh/dag2226/easierscrape/branch/main/graph/badge.svg)](https://codecov.io/gh/dag2226/easierscrape)
 
 ## Overview
-ez_scrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees.
+easierscrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees.
 
 ## Details
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
@@ -23,11 +23,11 @@ This project is a pure python project using modern tooling. It uses a `Makefile`
 - `make dist`: package library for distribution
 
 ## Basic Usage
-Install with pip: `pip install ez_scrape`
+Install with pip: `pip install easierscrape`
 
-Import needed methods from `ez_scrape` as seen below:
+Import needed methods from `easierscrape` as seen below:
 ```
-from ez_scrape import (
+from easierscrape import (
     parse_anchors,
     parse_files,
     parse_images,
@@ -44,15 +44,15 @@ from ez_scrape import (
 - Takes in two arguments:
   - The `url` to scrape from
   - A `List` of file extensions to parse (ex: `['pdf', 'txt']`)
-- Downloads results to an `ez_scrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in working directory
 
 `parse_images`
 - Takes in one argument: The `url` to scrape from
-- Downloads results to an `ez_scrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in working directory
 
 `parse_tables`
 - Takes in one argument: The `url` to scrape from
-- Downloads results to an `ez_scrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in working directory
 
 `print_tree`
 - Takes in an [anytree](https://github.com/c0fec0de/anytree) `Node` structure (head of a tree)
@@ -65,9 +65,9 @@ from ez_scrape import (
 - Returns the head [anytree](https://github.com/c0fec0de/anytree) `Node` of a generated scrape tree
 
 ## Command Line Usage
-When installed, you can invoke ez_scrape from the command-line:
+When installed, you can invoke easierscrape from the command-line:
 ```
-usage: ez_scrape [-h] url depth
+usage: easierscrape [-h] url depth
 
 positional arguments:
   url         the url to scrape

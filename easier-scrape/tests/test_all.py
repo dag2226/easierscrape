@@ -1,4 +1,4 @@
-from ez_scrape import (
+from easierscrape import (
     parse_anchors,
     parse_files,
     parse_images,

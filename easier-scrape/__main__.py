@@ -1,4 +1,4 @@
-from ez_scrape import parse_files, parse_images, parse_tables, print_tree, tree_gen
+from easierscrape import parse_files, parse_images, parse_tables, print_tree, tree_gen
 from argparse import ArgumentParser
 
 if __name__ == "__main__":
