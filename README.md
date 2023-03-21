@@ -2,6 +2,7 @@
 
 A library for basic web scraping.
 
+[![PyPI](https://img.shields.io/pypi/v/easierscrape)](https://pypi.org/project/easierscrape/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Issues](https://img.shields.io/github/issues/dag2226/easierscrape)](https://github.com/dag2226/easierscrape/issues)
 [![Build Status](https://github.com/dag2226/easierscrape/workflows/Build%20Status/badge.svg?branch=main)](https://github.com/dag2226/easierscrape/actions?query=workflow%3A%22Build+Status%22)
