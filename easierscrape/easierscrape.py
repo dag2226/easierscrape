@@ -45,7 +45,9 @@ def parse_images(url):
     for image in images:
         try:
             imageUrl = concat_urls(url, image.attrs["src"])
-            urlretrieve(imageUrl, join(".", "easier_scrape_downloads", "images", url2pathname(url)[2:], basename(imageUrl)))
+            urlretrieve(
+                imageUrl, join(".", "easier_scrape_downloads", "images", url2pathname(url)[2:], basename(imageUrl))
+            )
             image_download_count += 1
         except Exception:
             pass
