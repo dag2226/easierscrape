@@ -47,8 +47,11 @@ def test_parse_images_without_image():
 
 
 def test_parse_lists():
-    # TODO
-    assert parse_lists("TODO") == None
+    assert parse_lists("https://webscraper.io/test-sites/e-commerce/static") == 8
+
+
+def test_parse_no_lists():
+    assert parse_lists("https://toscrape.com/") == 0
 
 
 def test_parse_tables():
@@ -60,14 +63,31 @@ def test_parse_no_tables():
 
 
 def test_parse_text():
-    # TODO
-    assert parse_text("TODO") == None
+    assert parse_text("https://quotes.toscrape.com/login") == [
+        "Quotes to Scrape",
+        "Quotes to Scrape",
+        "Login",
+        "Username",
+        "Password",
+        "Quotes by:",
+        "GoodReads.com",
+        "Made with",
+        "❤",
+        "by",
+        "Scrapinghub",
+    ]
 
 
 # INTEGRATION TESTS================================================================================
 @patch('builtins.print')
-def test_print_tree(mock_print):
+def test_print_tree_1(mock_print):
     print_tree(tree_gen("https://toscrape.com/", 1))
     assert mock_print.call_args.args == (
         "https://toscrape.com\n├── http://books.toscrape.com\n├── http://quotes.toscrape.com\n├── http://quotes.toscrape.com/scroll\n├── http://quotes.toscrape.com/js\n├── http://quotes.toscrape.com/js-delayed\n├── http://quotes.toscrape.com/tableful\n├── http://quotes.toscrape.com/login\n├── http://quotes.toscrape.com/search.aspx\n└── http://quotes.toscrape.com/random",
     )
+
+
+@patch('builtins.print')
+def test_print_tree_2(mock_print):
+    print_tree(tree_gen("https://toscrape.com", 0))
+    assert mock_print.call_args.args == ("https://toscrape.com",)
