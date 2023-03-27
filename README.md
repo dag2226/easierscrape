@@ -32,7 +32,9 @@ from easierscrape import (
     parse_anchors,
     parse_files,
     parse_images,
+	parse_lists,
     parse_tables,
+	parse_text,
     print_tree,
     tree_gen,
 )
@@ -45,15 +47,23 @@ from easierscrape import (
 - Takes in two arguments:
   - The `url` to scrape from
   - A `List` of file extensions to parse (ex: `['pdf', 'txt']`)
-- Downloads results to an `easierscrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in the current working directory
 
 `parse_images`
 - Takes in one argument: The `url` to scrape from
-- Downloads results to an `easierscrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in the current working directory
+
+`parse_lists`
+- Takes in one argument: The `url` to scrape from
+- Downloads results to an `easierscrape_downloads` folder in the current working directory
 
 `parse_tables`
 - Takes in one argument: The `url` to scrape from
-- Downloads results to an `easierscrape_downloads` folder in working directory
+- Downloads results to an `easierscrape_downloads` folder in the current working directory
+
+`parse_text`
+- Takes in one argument: The `url` to scrape from
+- Returns a list of strings from the website's text content
 
 `print_tree`
 - Takes in an [anytree](https://github.com/c0fec0de/anytree) `Node` structure (head of a tree)
@@ -66,7 +76,7 @@ from easierscrape import (
 - Returns the head [anytree](https://github.com/c0fec0de/anytree) `Node` of a generated scrape tree
 
 ## Command Line Usage
-When installed, you can invoke easierscrape from the command-line:
+When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree:
 ```
 usage: easierscrape [-h] url depth
 

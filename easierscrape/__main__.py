@@ -1,5 +1,11 @@
-from easierscrape import parse_files, parse_images, parse_tables, print_tree, tree_gen
 from argparse import ArgumentParser
+from easierscrape import (
+    parse_files,
+    parse_images,
+    parse_tables,
+    print_tree,
+    tree_gen,
+)
 
 if __name__ == "__main__":
     parser = ArgumentParser()
