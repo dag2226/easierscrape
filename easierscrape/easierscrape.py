@@ -65,7 +65,8 @@ def parse_anchors(url):
 
 
 def parse_files(url, filetypes=[]):
-    """Downloads provided filetypes from provided url to an "easierscrape_downloads" folder in the current working directory
+    """Downloads provided filetypes from provided url to an "easierscrape_downloads"
+    folder in the current working directory
 
     Args:
         url (str): The url to scrape from
@@ -96,7 +97,8 @@ def parse_files(url, filetypes=[]):
 
 
 def parse_images(url):
-    """Downloads all images from provided url to an "easierscrape_downloads" folder in the current working directory
+    """Downloads all images from provided url to an "easierscrape_downloads"
+    folder in the current working directory
 
     Args:
         url (str): The url to scrape from
@@ -138,7 +140,8 @@ def parse_lists(url):
 
 
 def parse_tables(url):
-    """Downloads all tables from provided url to an "easierscrape_downloads" folder in the current working directory
+    """Downloads all tables from provided url to an "easierscrape_downloads"
+    folder in the current working directory
 
     Args:
         url (str): The url to scrape from
