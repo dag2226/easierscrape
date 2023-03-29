@@ -77,7 +77,4 @@ https://toscrape.com
    :caption: Contents
 
    source/modules
-   genindex
-   modindex
-   search
 ```
