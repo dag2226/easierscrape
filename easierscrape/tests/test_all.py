@@ -47,11 +47,31 @@ def test_parse_images_without_image():
 
 
 def test_parse_lists():
-    assert parse_lists("https://webscraper.io/test-sites/e-commerce/static") == 8
+    assert parse_lists("https://webscraper.io/test-sites/e-commerce/static") == [
+        [
+            'Web Scraper',
+            'Cloud Scraper',
+            'Pricing',
+            'Learn',
+            'Documentation',
+            'Video Tutorials',
+            'How to',
+            'Test Sites',
+            'Forum',
+            'Install',
+            'Login',
+        ],
+        ['Documentation', 'Video Tutorials', 'How to', 'Test Sites', 'Forum'],
+        ['Home', 'Phones', 'Computers'],
+        ['Products', 'Web Scraper browser extension', 'Web Scraper Cloud'],
+        ['Company', 'Contact', 'Website Privacy Policy', 'Browser Extension Privacy Policy', 'Media kit', 'Jobs'],
+        ['Resources', 'Blog', 'Documentation', 'Video Tutorials', 'Screenshots', 'Test Sites', 'Forum'],
+        ['CONTACT US', 'info@webscraper.io', 'Rupniecibas iela 30,', 'Riga, Latvia, LV-1045'],
+    ]
 
 
 def test_parse_no_lists():
-    assert parse_lists("https://toscrape.com/") == 0
+    assert parse_lists("https://toscrape.com/") == []
 
 
 def test_parse_tables():

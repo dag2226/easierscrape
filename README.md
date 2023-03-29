@@ -9,7 +9,7 @@ A library for basic web scraping.
 [![codecov](https://codecov.io/gh/dag2226/easierscrape/branch/main/graph/badge.svg)](https://codecov.io/gh/dag2226/easierscrape)
 
 ## Overview
-easierscrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees.
+easierscrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees using [anytree](https://github.com/c0fec0de/anytree).
 
 ## Details
 This project is a pure python project using modern tooling. It uses a `Makefile` as a command registry, with the following commands:
@@ -27,53 +27,36 @@ This project is a pure python project using modern tooling. It uses a `Makefile`
 Install with pip: `pip install easierscrape`
 
 Import needed methods from `easierscrape` as seen below:
-```
+```python
 from easierscrape import (
     parse_anchors,
     parse_files,
     parse_images,
-	parse_lists,
+    parse_lists,
     parse_tables,
-	parse_text,
+    parse_text,
     print_tree,
     tree_gen,
 )
 ```
-`parse_anchors`
-- Takes in one argument: The `url` to scrape from
-- Returns a list of anchor tag references
 
-`parse_files`
-- Takes in two arguments:
-  - The `url` to scrape from
-  - A `List` of file extensions to parse (ex: `['pdf', 'txt']`)
-- Downloads results to an `easierscrape_downloads` folder in the current working directory
+Usage examples:
+```
+>>> parse_text("https://quotes.toscrape.com/login")
+["Quotes to Scrape", "Quotes to Scrape", "Login", "Username", "Password", "Quotes by:", "GoodReads.com", "Made with", "❤", "by", "Scrapinghub",]
 
-`parse_images`
-- Takes in one argument: The `url` to scrape from
-- Downloads results to an `easierscrape_downloads` folder in the current working directory
-
-`parse_lists`
-- Takes in one argument: The `url` to scrape from
-- Downloads results to an `easierscrape_downloads` folder in the current working directory
-
-`parse_tables`
-- Takes in one argument: The `url` to scrape from
-- Downloads results to an `easierscrape_downloads` folder in the current working directory
-
-`parse_text`
-- Takes in one argument: The `url` to scrape from
-- Returns a list of strings from the website's text content
-
-`print_tree`
-- Takes in an [anytree](https://github.com/c0fec0de/anytree) `Node` structure (head of a tree)
-- Prints the tree
-
-`tree_gen`
-- Takes in two arguments;
-  - The head `url` to scrape from
-  - The `maxdepth` to scrape until
-- Returns the head [anytree](https://github.com/c0fec0de/anytree) `Node` of a generated scrape tree
+>>> print_tree(tree_gen("https://toscrape.com/", 1))
+https://toscrape.com
+├── http://books.toscrape.com
+├── http://quotes.toscrape.com
+├── http://quotes.toscrape.com/scroll
+├── http://quotes.toscrape.com/js
+├── http://quotes.toscrape.com/js-delayed
+├── http://quotes.toscrape.com/tableful
+├── http://quotes.toscrape.com/login
+├── http://quotes.toscrape.com/search.aspx
+└── http://quotes.toscrape.com/random"
+```
 
 ## Command Line Usage
 When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree:

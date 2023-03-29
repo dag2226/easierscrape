@@ -53,6 +53,9 @@ develop = [
     "mypy",
     "pytest>=4.3.0",
     "pytest-cov>=2.6.1",
+    "recommonmark",
+    "sphinx",
+    "sphinx_rtd_theme",
     "twine",
     "wheel",
 ]
