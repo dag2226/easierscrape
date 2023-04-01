@@ -4,6 +4,7 @@ include LICENSE
 include *.md
 
 include .bumpversion.cfg
+include .readthedocs.yml
 include pyproject.toml
 include Makefile
 
@@ -12,6 +13,7 @@ recursive-include docs *.gif
 recursive-include docs *.md
 recursive-include docs *.py
 recursive-include docs *.rst
+recursive-include docs *.txt
 recursive-include docs Makefile
 
 prune .github
@@ -25,3 +27,6 @@ global-exclude *.pyo
 global-exclude .git
 global-exclude .ipynb_checkpoints
 global-exclude .DS_Store
+
+
+  recursive-include docs *.txt
