@@ -20,7 +20,7 @@ dependencies = [
     "html5lib",
     "lxml",
     "pandas",
-    "requests",
+    "selenium",
 ]
 
 classifiers = [

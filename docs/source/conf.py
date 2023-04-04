@@ -4,7 +4,7 @@ import sphinx_rtd_theme
 from recommonmark.transform import AutoStructify
 
 # -- Path setup --------------------------------------------------------------
-sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 project = 'easierscrape'
