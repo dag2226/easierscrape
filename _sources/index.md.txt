@@ -76,5 +76,5 @@ https://toscrape.com
    :maxdepth: 1
    :caption: Contents
 
-   source/modules
+   modules
 ```
