@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>easierscrape package &mdash; easierscrape 0.1.0 documentation</title>
+  <title>easierscrape package &mdash; easierscrape 0.1.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -43,12 +43,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">easierscrape</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">easierscrape package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-easierscrape.easierscrape">easierscrape.easierscrape module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#easierscrape.easierscrape.Scraper"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#easierscrape-module">easierscrape module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#easierscrape.Scraper"><code class="docutils literal notranslate"><span class="pre">Scraper</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-easierscrape">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -82,18 +80,15 @@
              
   <section id="easierscrape-package">
 <h1>easierscrape package<a class="headerlink" href="#easierscrape-package" title="Permalink to this heading">¶</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
-</section>
-<section id="module-easierscrape.easierscrape">
-<span id="easierscrape-easierscrape-module"></span><h2>easierscrape.easierscrape module<a class="headerlink" href="#module-easierscrape.easierscrape" title="Permalink to this heading">¶</a></h2>
+<section id="easierscrape-module">
+<h2>easierscrape module<a class="headerlink" href="#easierscrape-module" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easierscrape.easierscrape.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><a class="headerlink" href="#easierscrape.easierscrape.Scraper" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easierscrape.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><a class="headerlink" href="#easierscrape.Scraper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_anchors">
-<span class="sig-name descname"><span class="pre">parse_anchors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_anchors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_anchors">
+<span class="sig-name descname"><span class="pre">parse_anchors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_anchors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a list of anchor tags from provided url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -109,8 +104,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_files">
-<span class="sig-name descname"><span class="pre">parse_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filetypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_files" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_files">
+<span class="sig-name descname"><span class="pre">parse_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filetypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads provided filetypes from provided url to an “easierscrape_downloads”
 folder in the current working directory</p>
 <dl class="field-list simple">
@@ -132,8 +127,8 @@ pdf file and 30 txt files were downloaded)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_images">
-<span class="sig-name descname"><span class="pre">parse_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_images" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_images">
+<span class="sig-name descname"><span class="pre">parse_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads all images from provided url to an “easierscrape_downloads”
 folder in the current working directory</p>
 <dl class="field-list simple">
@@ -150,8 +145,8 @@ folder in the current working directory</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_lists">
-<span class="sig-name descname"><span class="pre">parse_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_lists" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_lists">
+<span class="sig-name descname"><span class="pre">parse_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_lists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a list of lists from provided url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -167,8 +162,8 @@ folder in the current working directory</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_tables">
-<span class="sig-name descname"><span class="pre">parse_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_tables" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_tables">
+<span class="sig-name descname"><span class="pre">parse_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_tables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads all tables from provided url to an “easierscrape_downloads”
 folder in the current working directory</p>
 <dl class="field-list simple">
@@ -185,8 +180,8 @@ folder in the current working directory</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.parse_text">
-<span class="sig-name descname"><span class="pre">parse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.parse_text" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.parse_text">
+<span class="sig-name descname"><span class="pre">parse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a list of text fragments from provided url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -202,8 +197,8 @@ folder in the current working directory</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.print_tree">
-<span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.print_tree" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.print_tree">
+<span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.print_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints out the tree of the provided anytree Node structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -213,8 +208,8 @@ folder in the current working directory</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easierscrape.easierscrape.Scraper.tree_gen">
-<span class="sig-name descname"><span class="pre">tree_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.easierscrape.Scraper.tree_gen" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="easierscrape.Scraper.tree_gen">
+<span class="sig-name descname"><span class="pre">tree_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.tree_gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a tree of depth=maxdepth starting at url</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -234,9 +229,6 @@ folder in the current working directory</p>
 
 </dd></dl>
 
-</section>
-<section id="module-easierscrape">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-easierscrape" title="Permalink to this heading">¶</a></h2>
 </section>
 </section>
 
