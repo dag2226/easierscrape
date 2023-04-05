@@ -8,7 +8,7 @@ from re import compile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from urllib.parse import urlparse
-from urllib.request import urlcleanup, urlretrieve, url2pathname
+from urllib.request import urlopen, url2pathname
 from uuid import uuid4
 
 
@@ -97,8 +97,9 @@ class Scraper:
             for file in self._soup_url(url).find_all("a", href=compile(r"(." + filetype + ")")):
                 try:
                     fileUrl = self._concat_urls(url, file.attrs["href"])
-                    urlretrieve(fileUrl, join(self._get_download_dir(filetype, url), basename(fileUrl)))
-                    urlcleanup()
+                    response = urlopen(fileUrl)
+                    with open(join(self._get_download_dir(filetype, url), basename(fileUrl)), "wb") as file:
+                        file.write(response.read())
                     file_download_count += 1
                 except Exception:
                     pass
@@ -120,8 +121,9 @@ class Scraper:
         for image in self._soup_url(url).findAll("img"):
             try:
                 imageUrl = self._concat_urls(url, image.attrs["src"])
-                urlretrieve(imageUrl, join(self._get_download_dir("images", url), basename(imageUrl)))
-                urlcleanup()
+                response = urlopen(imageUrl)
+                with open(join(self._get_download_dir("images", url), basename(imageUrl)), "wb") as file:
+                    file.write(response.read())
                 image_download_count += 1
             except Exception:
                 pass
