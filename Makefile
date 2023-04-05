@@ -83,7 +83,7 @@ deep-clean: ## clean everything from the repository
 	git clean -fdx
 
 clean: ## clean the repository
-	rm -rf .coverage coverage cover htmlcov logs build dist *.egg-info .pytest_cache
+	rm -rf .coverage coverage cover htmlcov logs build dist *.egg-info .pytest_cache easierscrape_downloads
 
 ########
 # DOCS #

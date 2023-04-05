@@ -7,6 +7,7 @@ from pandas import read_html
 from re import compile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from urllib.parse import urlparse
 from urllib.request import urlcleanup, urlretrieve, url2pathname
 from uuid import uuid4
 
@@ -27,8 +28,9 @@ class Scraper:
         return BeautifulSoup(self.driver.page_source, "html.parser")
 
     def _concat_urls(self, base_url, child_url):
+        parsed = urlparse(base_url)
         if child_url.startswith("/"):
-            child_url = base_url + child_url
+            child_url = parsed.scheme + "://" + parsed.netloc + child_url
         if child_url.startswith("./"):
             child_url = base_url + child_url[1:]
         if not child_url.startswith("http"):

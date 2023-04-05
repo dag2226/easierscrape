@@ -3,25 +3,19 @@
 ## Basic Usage
 Install with pip: `pip install easierscrape`
 
-Import needed methods from `easierscrape` as seen below:
+Import `Scraper` from `easierscrape` as seen below and then call class methods to scrape varying resources:
 ```python
-from easierscrape import (
-    parse_anchors,
-    parse_files,
-    parse_images,
-    parse_lists,
-    parse_tables,
-    parse_text,
-    print_tree,
-    tree_gen,
-)
+from easierscrape import Scraper
+
+scraper = Scraper()
 ```
+
 Usage examples:
 ```
->>> parse_text("https://quotes.toscrape.com/login")
+>>> scraper.parse_text("https://quotes.toscrape.com/login")
 ["Quotes to Scrape", "Quotes to Scrape", "Login", "Username", "Password", "Quotes by:", "GoodReads.com", "Made with", "❤", "by", "Scrapinghub",]
 
->>> print_tree(tree_gen("https://toscrape.com/", 1))
+>>> scraper.print_tree(tree_gen("https://toscrape.com/", 1))
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
@@ -43,9 +37,9 @@ Usage example:
 ```
 
 ## Command Line Usage
-When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree:
+When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
 ```
-usage: easierscrape [-h] url depth
+usage: python -m easierscrape [-h] url depth
 
 positional arguments:
   url         the url to scrape
@@ -56,7 +50,7 @@ optional arguments:
 ```
 Usage example:
 ```
->>> easierscrape https://toscrape.com/ 1
+>>> python -m  easierscrape https://toscrape.com/ 1
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
@@ -68,7 +62,9 @@ https://toscrape.com
 ├── http://quotes.toscrape.com/search.aspx
 └── http://quotes.toscrape.com/random"
 ```
-
+```eval_rst
+.. image:: images/cli_recording.gif
+```
 
 
 ```eval_rst
