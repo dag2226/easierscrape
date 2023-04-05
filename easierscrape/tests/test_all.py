@@ -1,8 +1,9 @@
-from easierscrape import Scraper
+import easierscrape
+from easierscrape.__main__ import main
 from unittest.mock import patch
 
 
-scraper = Scraper()
+scraper = easierscrape.Scraper()
 
 
 # UNIT TESTS=======================================================================================
@@ -111,5 +112,15 @@ def test_print_tree_2(mock_print):
 def test_dynamic_tree(mock_print):
     scraper.print_tree(scraper.tree_gen("http://quotes.toscrape.com/js/", 1))
     assert mock_print.call_args.args == (
-        "http://quotes.toscrape.com/js\n├── http://quotes.toscrape.com/js/login\n├── http://quotes.toscrape.com/js/js/page/2\n├── https://goodreads.com/quotes\n└── https://scrapinghub.com",
+        "http://quotes.toscrape.com/js\n├── http://quotes.toscrape.com\n├── http://quotes.toscrape.com/login\n├── http://quotes.toscrape.com/js/page/2\n├── https://goodreads.com/quotes\n└── https://scrapinghub.com",
     )
+
+
+@patch('builtins.print')
+def test_main(mock_print):
+    cli_args = ["https://toscrape.com", "1"]
+    download_counts = main(cli_args)
+    assert mock_print.call_args.args == (
+        "https://toscrape.com\n├── http://books.toscrape.com\n├── http://quotes.toscrape.com\n├── http://quotes.toscrape.com/scroll\n├── http://quotes.toscrape.com/js\n├── http://quotes.toscrape.com/js-delayed\n├── http://quotes.toscrape.com/tableful\n├── http://quotes.toscrape.com/login\n├── http://quotes.toscrape.com/search.aspx\n└── http://quotes.toscrape.com/random",
+    )
+    assert download_counts == (3, [0, 0], 2)
