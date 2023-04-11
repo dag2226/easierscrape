@@ -52,12 +52,13 @@ class Scraper:
                 url = url[:-1]
             tree = Node(url, url=url)
         if depth < maxdepth:
+            parent_node = tree
             for a in self.parse_anchors(url):
                 try:
                     child_url = self._concat_urls(url, a.attrs["href"].replace("www.", ""))
                     if find(tree.root, lambda node: node.url == child_url) is None:
-                        new_leaf = Node(child_url, url=child_url, parent=tree)
-                        tree = self.tree_gen(child_url, maxdepth, new_leaf, depth + 1)
+                        new_leaf = Node(child_url, url=child_url, parent=parent_node)
+                        tree = self._tree_gen_rec(child_url, maxdepth, new_leaf, depth + 1)
                 except Exception:
                     pass
         return tree.root

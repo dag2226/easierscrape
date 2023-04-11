@@ -15,7 +15,7 @@ Usage examples:
 >>> scraper.parse_text("https://quotes.toscrape.com/login")
 ["Quotes to Scrape", "Quotes to Scrape", "Login", "Username", "Password", "Quotes by:", "GoodReads.com", "Made with", "❤", "by", "Scrapinghub",]
 
->>> scraper.print_tree(tree_gen("https://toscrape.com/", 1))
+>>> scraper.print_tree(scraper.tree_gen("https://toscrape.com/", 1))
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
