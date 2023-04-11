@@ -1,10 +1,21 @@
 easierscrape package
 ====================
 
-easierscrape module
+Submodules
+----------
+
+easierscrape.easierscrape module
 --------------------------------
 
-.. autoclass:: easierscrape.Scraper
+.. automodule:: easierscrape.easierscrape
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: easierscrape
    :members:
    :undoc-members:
    :show-inheritance:

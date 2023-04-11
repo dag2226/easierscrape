@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to easierscrape’s documentation! &mdash; easierscrape 0.1.1 documentation</title>
+  <title>Welcome to easierscrape’s documentation! &mdash; easierscrape 0.1.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -83,7 +83,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">parse_text</span><span class="p">(</span><span class="s2">&quot;https://quotes.toscrape.com/login&quot;</span><span class="p">)</span>
 <span class="go">[&quot;Quotes to Scrape&quot;, &quot;Quotes to Scrape&quot;, &quot;Login&quot;, &quot;Username&quot;, &quot;Password&quot;, &quot;Quotes by:&quot;, &quot;GoodReads.com&quot;, &quot;Made with&quot;, &quot;❤&quot;, &quot;by&quot;, &quot;Scrapinghub&quot;,]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">tree_gen</span><span class="p">(</span><span class="s2">&quot;https://toscrape.com/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">scraper</span><span class="o">.</span><span class="n">tree_gen</span><span class="p">(</span><span class="s2">&quot;https://toscrape.com/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="go">https://toscrape.com</span>
 <span class="go">├── http://books.toscrape.com</span>
 <span class="go">├── http://quotes.toscrape.com</span>
