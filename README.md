@@ -50,7 +50,7 @@ https://toscrape.com
 ├── http://quotes.toscrape.com/tableful
 ├── http://quotes.toscrape.com/login
 ├── http://quotes.toscrape.com/search.aspx
-└── http://quotes.toscrape.com/random"
+└── http://quotes.toscrape.com/random
 ```
 
 ## Command Line Usage
@@ -77,5 +77,13 @@ https://toscrape.com
 ├── http://quotes.toscrape.com/tableful
 ├── http://quotes.toscrape.com/login
 ├── http://quotes.toscrape.com/search.aspx
-└── http://quotes.toscrape.com/random"
+└── http://quotes.toscrape.com/random
 ```
+
+## Contributing
+
+See [CONTRIBUTING](./CONTRIBUTING.md) for more information.
+
+## License
+
+This software is licensed under the Apache 2.0 license. Please see [LICENSE](./LICENSE) for more information.
