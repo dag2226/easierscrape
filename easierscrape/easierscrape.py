@@ -2,11 +2,12 @@ from anytree import Node, RenderTree
 from anytree.search import find
 from bs4 import BeautifulSoup
 from os import getcwd, makedirs
-from os.path import basename, exists, join
+from os.path import basename, exists, getsize, join
 from pandas import read_html
 from re import compile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 from urllib.parse import urlparse
 from urllib.request import urlopen, url2pathname
 from uuid import uuid4
@@ -62,6 +63,24 @@ class Scraper:
                 except Exception:
                     pass
         return tree.root
+
+    def get_screenshot(self, url):
+        """Downloads screenshot from provided url to an "easierscrape_downloads"
+        folder in the current working directory
+
+        Args:
+            url (str): The url to screenshot
+
+        Returns:
+            int: The downloaded screenshot size (bytes)
+
+        """
+        download_file = join(self._get_download_dir("images", url), "easierscrape_screenshot.png")
+
+        self.driver.get(url)
+        self.driver.find_element(By.TAG_NAME, 'body').screenshot(download_file)
+
+        return getsize(download_file)
 
     def parse_anchors(self, url):
         """Parses a list of anchor tags from provided url.

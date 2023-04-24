@@ -8,10 +8,14 @@ from unittest.mock import patch
 
 scraper = easierscrape.Scraper()
 download_dir = join(getcwd(), "easierscrape_downloads")
-print(download_dir)
 
 
 # UNIT TESTS=======================================================================================
+def test_get_screenshot():
+    assert scraper.get_screenshot("https://toscrape.com") in [191320, 230509]
+    rmtree(download_dir)
+
+
 def test_parse_anchors():
     assert len(scraper.parse_anchors("https://toscrape.com/")) == 13
 
@@ -31,7 +35,7 @@ def test_parse_files_txt_pdf():
     rmtree(download_dir)
 
 
-@patch('builtins.print')
+@patch("builtins.print")
 def test_parse_files_without_filetype(mock_print):
     scraper.parse_files("https://toscrape.com/", [])
     assert mock_print.call_args.args == ("No filetype specified",)
@@ -112,7 +116,7 @@ def test_parse_text():
 
 
 # INTEGRATION TESTS================================================================================
-@patch('builtins.print')
+@patch("builtins.print")
 def test_print_tree_1(mock_print):
     scraper.print_tree(scraper.tree_gen("https://toscrape.com/", 1))
     assert mock_print.call_args.args == (
@@ -120,13 +124,13 @@ def test_print_tree_1(mock_print):
     )
 
 
-@patch('builtins.print')
+@patch("builtins.print")
 def test_print_tree_2(mock_print):
     scraper.print_tree(scraper.tree_gen("https://toscrape.com", 0))
     assert mock_print.call_args.args == ("https://toscrape.com",)
 
 
-@patch('builtins.print')
+@patch("builtins.print")
 def test_print_tree_3(mock_print):
     scraper.print_tree(scraper.tree_gen("https://quotes.toscrape.com/", 2))
     assert mock_print.call_args.args == (
@@ -134,7 +138,7 @@ def test_print_tree_3(mock_print):
     )
 
 
-@patch('builtins.print')
+@patch("builtins.print")
 def test_dynamic_tree(mock_print):
     scraper.print_tree(scraper.tree_gen("http://quotes.toscrape.com/js/", 1))
     assert mock_print.call_args.args == (
@@ -142,12 +146,15 @@ def test_dynamic_tree(mock_print):
     )
 
 
-@patch('builtins.print')
+@patch("builtins.print")
 def test_main(mock_print):
     cli_args = ["https://toscrape.com", "1"]
-    download_counts = main(cli_args)
+    main_out = main(cli_args)
     assert mock_print.call_args.args == (
         "https://toscrape.com\n├── http://books.toscrape.com\n├── http://quotes.toscrape.com\n├── http://quotes.toscrape.com/scroll\n├── http://quotes.toscrape.com/js\n├── http://quotes.toscrape.com/js-delayed\n├── http://quotes.toscrape.com/tableful\n├── http://quotes.toscrape.com/login\n├── http://quotes.toscrape.com/search.aspx\n└── http://quotes.toscrape.com/random",
     )
-    assert download_counts == (3, [0, 0], 2)
+    assert main_out[0] in [191320, 230509]
+    assert main_out[1] == 3
+    assert main_out[2] == [0, 0]
+    assert main_out[3] == 2
     rmtree(download_dir)

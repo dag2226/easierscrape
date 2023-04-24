@@ -10,11 +10,12 @@ def main(arg_strings=None):
 
     scraper = Scraper()
     scraper.print_tree(scraper.tree_gen(args.url, args.depth))
+    screenshot_size = scraper.get_screenshot(args.url)
     image_count = scraper.parse_images(args.url)
     file_counts = scraper.parse_files(args.url, ['txt', 'pdf'])
     table_count = scraper.parse_tables(args.url)
 
-    return image_count, file_counts, table_count
+    return screenshot_size, image_count, file_counts, table_count
 
 
 if __name__ == "__main__":
