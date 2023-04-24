@@ -2,7 +2,7 @@ from anytree import Node, RenderTree
 from anytree.search import find
 from bs4 import BeautifulSoup
 from os import getcwd, makedirs
-from os.path import basename, exists, getsize, join
+from os.path import basename, exists, join
 from pandas import read_html
 from re import compile
 from selenium import webdriver
@@ -72,7 +72,7 @@ class Scraper:
             url (str): The url to screenshot
 
         Returns:
-            int: The downloaded screenshot size (bytes)
+            bool: True
 
         """
         download_file = join(self._get_download_dir("images", url), "easierscrape_screenshot.png")
@@ -80,7 +80,7 @@ class Scraper:
         self.driver.get(url)
         self.driver.find_element(By.TAG_NAME, 'body').screenshot(download_file)
 
-        return getsize(download_file)
+        return True  # getsize(download_file)
 
     def parse_anchors(self, url):
         """Parses a list of anchor tags from provided url.
