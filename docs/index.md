@@ -29,7 +29,7 @@ https://toscrape.com
 ```
 
 ### Downloads
-Using `parse_files`, `parse_images`, or `parse_tables` will result in an "easierscrape_downloads" directory being created in the working directory.
+Using `get_screenshot`, `parse_files`, `parse_images`, or `parse_tables` will result in an "easierscrape_downloads" directory being created in the working directory.
 
 Usage example:
 ```eval_rst
@@ -37,7 +37,7 @@ Usage example:
 ```
 
 ## Command Line Usage
-When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
+When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, get a screenshot, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
 ```
 usage: python -m easierscrape [-h] url depth
 
