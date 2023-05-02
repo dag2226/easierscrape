@@ -82,8 +82,8 @@ https://toscrape.com
 
 ## Contributing
 
-See [CONTRIBUTING](./CONTRIBUTING.md) for more information.
+See [CONTRIBUTING](https://github.com/dag2226/easierscrape/blob/main/CONTRIBUTING.md) for more information.
 
 ## License
 
-This software is licensed under the Apache 2.0 license. Please see [LICENSE](./LICENSE) for more information.
+This software is licensed under the Apache 2.0 license. Please see [LICENSE](https://github.com/dag2226/easierscrape/blob/main/LICENSE) for more information.
