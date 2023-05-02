@@ -91,13 +91,26 @@ def test_parse_no_lists():
     assert scraper.parse_lists("https://toscrape.com/") == []
 
 
-def test_parse_tables():
+def test_parse_tables_to_csv():
     assert scraper.parse_tables("https://toscrape.com/") == 2
+    rmtree(download_dir)
+
+
+def test_parse_tables_to_xlsx():
+    assert scraper.parse_tables("https://toscrape.com/", "xlsx") == 2
     rmtree(download_dir)
 
 
 def test_parse_no_tables():
     assert scraper.parse_tables("https://quotes.toscrape.com/") == 0
+
+
+@patch("builtins.print")
+def test_parse_tables_to_unsupported_type(mock_print):
+    assert scraper.parse_tables("https://toscrape.com/", "unsup") == 2
+    assert mock_print.call_args.args == (
+        "output_type = unsup not implemented.\nCurrently supported filetypes are csv and xlsx.",
+    )
 
 
 def test_parse_text():
