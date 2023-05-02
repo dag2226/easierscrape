@@ -3,7 +3,7 @@ from anytree.search import find
 from bs4 import BeautifulSoup
 from os import getcwd, makedirs
 from os.path import basename, exists, join
-from pandas import read_html
+from pandas import read_html, ExcelWriter
 from re import compile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -20,7 +20,7 @@ class Scraper:
         options.add_argument("--headless")
         options.add_argument("--window-size=1920,1080")
         options.add_argument("start-maximized")
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        options.add_experimental_option("excludeSwitches", ["enable-logging"])
         options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
         self.driver = webdriver.Chrome(options=options)
 
@@ -68,8 +68,8 @@ class Scraper:
         return tree.root
 
     def get_screenshot(self, url):
-        """Downloads screenshot from provided url to an "easierscrape_downloads"
-        folder in the current working directory
+        """Downloads screenshot from provided url to an "easierscrape_downloads" folder
+        in the current working directory
 
         Args:
             url (str): The url to screenshot
@@ -81,7 +81,7 @@ class Scraper:
         download_file = join(self._get_download_dir("images", url), "easierscrape_screenshot.png")
 
         self.driver.get(url)
-        self.driver.find_element(By.TAG_NAME, 'body').screenshot(download_file)
+        self.driver.find_element(By.TAG_NAME, "body").screenshot(download_file)
 
         return True  # getsize(download_file)
 
@@ -130,8 +130,8 @@ class Scraper:
         return file_download_list
 
     def parse_images(self, url):
-        """Downloads all images from provided url to an "easierscrape_downloads"
-        folder in the current working directory
+        """Downloads all images from provided url to an "easierscrape_downloads" folder
+        in the current working directory
 
         Args:
             url (str): The url to scrape from
@@ -163,7 +163,6 @@ class Scraper:
 
         """
         # This covers unordered and ordered, but not description lists (dl)
-        # TODO: The unit test for this could be improved
         out = []
         for list in self._soup_url(url).findAll(["ul", "ol"]):
             out.append([item for item in list.stripped_strings])
@@ -171,12 +170,16 @@ class Scraper:
                 out.pop()
         return out
 
-    def parse_tables(self, url):
-        """Downloads all tables from provided url to an "easierscrape_downloads"
-        folder in the current working directory
+    def parse_tables(self, url, output_type="csv"):
+        """Downloads all tables from provided url to an "easierscrape_downloads" folder
+        in the current working directory. Supported output types are csv and xlsx. If
+        downloaded as a csv file, each table will be stored in a separate csv. If
+        downloaded as an xlsx file, all tables will be stored as separate sheets in a
+        "tables.xlsx" file.
 
         Args:
             url (str): The url to scrape from
+            output_type (str): The filetype to output to (defaults to csv).
 
         Returns:
             int: Number of tables downloaded from url
@@ -191,8 +194,23 @@ class Scraper:
                 if soup_tables[i].has_attr("id"):
                     table_name = soup_tables[i]["id"]
                 else:
-                    table_name = str(uuid4())
-                tables[i].to_csv(join(self._get_download_dir("tables", url), table_name + ".csv"))
+                    table_name = uuid4().hex[0:31]
+                if output_type == "csv":
+                    tables[i].to_csv(join(self._get_download_dir("tables", url), table_name + ".csv"))
+                elif output_type == "xlsx":
+                    excel_file = join(self._get_download_dir("tables", url), "tables.xlsx")
+                    if exists(excel_file):
+                        with ExcelWriter(excel_file, mode="a") as writer:
+                            tables[i].to_excel(writer, sheet_name=table_name)
+                    else:
+                        with ExcelWriter(excel_file, mode="w") as writer:
+                            tables[i].to_excel(writer, sheet_name=table_name)
+                else:
+                    print(
+                        "output_type = "
+                        + output_type
+                        + " not implemented.\nCurrently supported filetypes are csv and xlsx."
+                    )
         return len(soup_tables)
 
     def parse_text(self, url):

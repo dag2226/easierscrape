@@ -17,8 +17,8 @@ requires-python = ">=3.7"
 dependencies = [
     "anytree",
     "beautifulsoup4",
-    "html5lib",
     "lxml",
+    "openpyxl",
     "pandas",
     "selenium",
 ]
