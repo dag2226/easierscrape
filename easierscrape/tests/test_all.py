@@ -12,8 +12,9 @@ download_dir = join(getcwd(), "easierscrape_downloads")
 
 # UNIT TESTS=======================================================================================
 def test_get_screenshot():
-    assert True  # scraper.get_screenshot("https://toscrape.com") in [191320, 230509]
-    # rmtree(download_dir)
+    assert scraper.get_screenshot("https://toscrape.com") == True
+    # scraper.get_screenshot("https://toscrape.com") in [191320, 230509]
+    rmtree(download_dir)
 
 
 def test_parse_anchors():

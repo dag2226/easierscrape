@@ -24,6 +24,9 @@ class Scraper:
         options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
         self.driver = webdriver.Chrome(options=options)
 
+    def __del__(self):
+        self.driver.quit()
+
     def _soup_url(self, url):
         self.driver.get(url)
         return BeautifulSoup(self.driver.page_source, "html.parser")
