@@ -84,59 +84,52 @@
 <h2>easierscrape module<a class="headerlink" href="#easierscrape-module" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="easierscrape.Scraper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easierscrape.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><a class="headerlink" href="#easierscrape.Scraper" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easierscrape.</span></span><span class="sig-name descname"><span class="pre">Scraper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for a scraper that targets <cite>url</cite>. A <cite>Scraper</cite> object acts as a “one-stop-shop” for
+all scraping functions.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.get_screenshot">
-<span class="sig-name descname"><span class="pre">get_screenshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.get_screenshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Downloads screenshot from provided url to an “easierscrape_downloads”
-folder in the current working directory</p>
+<span class="sig-name descname"><span class="pre">get_screenshot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.get_screenshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads screenshot from the Scraper url to an “easierscrape_downloads” folder in the
+current working directory.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to screenshot</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_anchors">
-<span class="sig-name descname"><span class="pre">parse_anchors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_anchors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parses a list of anchor tags from provided url.</p>
+<span class="sig-name descname"><span class="pre">parse_anchors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_anchors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a list of anchor tags from the Scraper url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of anchor tags in the url.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of anchor tags in the url</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[str]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_files">
-<span class="sig-name descname"><span class="pre">parse_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filetypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_files" title="Permalink to this definition">¶</a></dt>
-<dd><p>Downloads provided filetypes from provided url to an “easierscrape_downloads”
-folder in the current working directory</p>
+<span class="sig-name descname"><span class="pre">parse_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filetypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads provided filetypes from the Scraper url to an “easierscrape_downloads” folder
+in the current working directory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p></li>
-<li><p><strong>filetypes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of filetypes (“pdf”, “txt”, etc.) to scrape</p></li>
-</ul>
+<dd class="field-odd"><p><strong>filetypes</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – List of filetypes (“pdf”, “txt”, etc.) to scrape.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of number of files downloaded per filetype from url (so if
 filetypes=[“pdf”, “txt”] and the return value is [1, 30] this means that 1
-pdf file and 30 txt files were downloaded)</p>
+pdf file and 30 txt files were downloaded).</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>List[int]</p>
@@ -146,50 +139,50 @@ pdf file and 30 txt files were downloaded)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_images">
-<span class="sig-name descname"><span class="pre">parse_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_images" title="Permalink to this definition">¶</a></dt>
-<dd><p>Downloads all images from provided url to an “easierscrape_downloads”
-folder in the current working directory</p>
+<span class="sig-name descname"><span class="pre">parse_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads all images from the Scraper url to an “easierscrape_downloads” folder in the
+current working directory.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of images downloaded from url.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of images downloaded from url</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_lists">
-<span class="sig-name descname"><span class="pre">parse_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_lists" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parses a list of lists from provided url.</p>
+<span class="sig-name descname"><span class="pre">parse_lists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a list of lists from the Scraper url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of lists (each stored as a List) in the url.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of lists (each stored as a List) in the url</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[List[str]]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[List[str]]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_tables">
-<span class="sig-name descname"><span class="pre">parse_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_tables" title="Permalink to this definition">¶</a></dt>
-<dd><p>Downloads all tables from provided url to an “easierscrape_downloads”
-folder in the current working directory</p>
+<span class="sig-name descname"><span class="pre">parse_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'csv'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads all tables from the Scraper url to an “easierscrape_downloads” folder in the
+current working directory.</p>
+<p>Supported output types are csv and xlsx (defaults to csv).</p>
+<ul class="simple">
+<li><p>If downloaded as a csv file, each table will be stored in a separate csv.</p></li>
+<li><p>If downloaded as an xlsx file, all tables will be stored as separate sheets in a
+“tables.xlsx” file.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p>
+<dd class="field-odd"><p><strong>output_type</strong> (<em>str</em>) – The filetype to output to (defaults to csv).</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of tables downloaded from url</p>
+<dd class="field-even"><p>Number of tables downloaded from url.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -199,45 +192,39 @@ folder in the current working directory</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.parse_text">
-<span class="sig-name descname"><span class="pre">parse_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parses a list of text fragments from provided url.</p>
+<span class="sig-name descname"><span class="pre">parse_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.parse_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a list of text fragments from the Scraper url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – The url to scrape from</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of text fragments in the url.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of text fragments in the url</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List[str]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.print_tree">
-<span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.print_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints out the tree of the provided anytree Node structure</p>
+<span class="sig-name descname"><span class="pre">print_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.print_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a tree of depth=maxdepth starting at the Scraper url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>tree</strong> (<em>Node</em>) – The head anytree Node of the tree to print</p>
+<dd class="field-odd"><p><strong>maxdepth</strong> (<em>int</em>) – The depth you want to print the tree to.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="easierscrape.Scraper.tree_gen">
-<span class="sig-name descname"><span class="pre">tree_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.tree_gen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a tree of depth=maxdepth starting at url</p>
+<span class="sig-name descname"><span class="pre">tree_gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easierscrape.Scraper.tree_gen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a tree of depth=maxdepth starting at the Scraper url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>url</strong> (<em>str</em>) – The head url to generate the tree from</p></li>
-<li><p><strong>maxdepth</strong> (<em>int</em>) – The depth you want to generate the tree to</p></li>
-</ul>
+<dd class="field-odd"><p><strong>maxdepth</strong> (<em>int</em>) – The depth you want to generate the tree to.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Head node of an anytree hyperlink tree</p>
+<dd class="field-even"><p>Head node of an anytree hyperlink tree.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Node</p>

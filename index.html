@@ -73,17 +73,18 @@
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>Install with pip: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">easierscrape</span></code></p>
-<p>Import <code class="docutils literal notranslate"><span class="pre">Scraper</span></code> from <code class="docutils literal notranslate"><span class="pre">easierscrape</span></code> as seen below and then call class methods to scrape varying resources:</p>
+<p>Import <code class="docutils literal notranslate"><span class="pre">Scraper</span></code> from <code class="docutils literal notranslate"><span class="pre">easierscrape</span></code> and instantiate it with a url as seen below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">easierscrape</span> <span class="kn">import</span> <span class="n">Scraper</span>
 
-<span class="n">scraper</span> <span class="o">=</span> <span class="n">Scraper</span><span class="p">()</span>
+<span class="n">scraper</span> <span class="o">=</span> <span class="n">Scraper</span><span class="p">(</span><span class="s2">&quot;https://quotes.toscrape.com/login&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>From there, call class methods to scrape varying resources.</p>
 <p>Usage examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">parse_text</span><span class="p">(</span><span class="s2">&quot;https://quotes.toscrape.com/login&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">parse_text</span><span class="p">()</span>
 <span class="go">[&quot;Quotes to Scrape&quot;, &quot;Quotes to Scrape&quot;, &quot;Login&quot;, &quot;Username&quot;, &quot;Password&quot;, &quot;Quotes by:&quot;, &quot;GoodReads.com&quot;, &quot;Made with&quot;, &quot;❤&quot;, &quot;by&quot;, &quot;Scrapinghub&quot;,]</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">scraper</span><span class="o">.</span><span class="n">tree_gen</span><span class="p">(</span><span class="s2">&quot;https://toscrape.com/&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">https://toscrape.com</span>
 <span class="go">├── http://books.toscrape.com</span>
 <span class="go">├── http://quotes.toscrape.com</span>
@@ -93,7 +94,7 @@
 <span class="go">├── http://quotes.toscrape.com/tableful</span>
 <span class="go">├── http://quotes.toscrape.com/login</span>
 <span class="go">├── http://quotes.toscrape.com/search.aspx</span>
-<span class="go">└── http://quotes.toscrape.com/random&quot;</span>
+<span class="go">└── http://quotes.toscrape.com/random</span>
 </pre></div>
 </div>
 <section id="downloads">
