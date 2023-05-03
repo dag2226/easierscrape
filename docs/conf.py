@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'easierscrape'
 copyright = '2023, Daniel Greco'
 author = 'Daniel Greco'
-release = '0.1.3'
+release = '0.2.0'
 
 master_doc = 'index'
 
