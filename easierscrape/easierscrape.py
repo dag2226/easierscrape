@@ -178,7 +178,7 @@ class Scraper:
 
         - If downloaded as a csv file, each table will be stored in a separate csv.
         - If downloaded as an xlsx file, all tables will be stored as separate sheets in a
-        "tables.xlsx" file.
+          "tables.xlsx" file.
 
         Args:
             output_type (str): The filetype to output to (defaults to csv).
