@@ -28,19 +28,20 @@ This project is a pure python project using modern tooling. It uses a `Makefile`
 ## Basic Usage
 Install with pip: `pip install easierscrape`
 
-Import `Scraper` from `easierscrape` as seen below and then call class methods to scrape varying resources:
+Import `Scraper` from `easierscrape` and instantiate it with a url as seen below:
 ```python
 from easierscrape import Scraper
 
-scraper = Scraper()
+scraper = Scraper("https://quotes.toscrape.com/login")
 ```
+From there, call class methods to scrape varying resources.
 
 Usage examples:
 ```
->>> scraper.parse_text("https://quotes.toscrape.com/login")
+>>> scraper.parse_text()
 ["Quotes to Scrape", "Quotes to Scrape", "Login", "Username", "Password", "Quotes by:", "GoodReads.com", "Made with", "❤", "by", "Scrapinghub",]
 
->>> scraper.print_tree(scraper.tree_gen("https://toscrape.com/", 1))
+>>> scraper.print_tree(1)
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
@@ -54,7 +55,7 @@ https://toscrape.com
 ```
 
 ## Command Line Usage
-When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
+When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, get a screenshot, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
 ```
 usage: python -m easierscrape [-h] url depth
 

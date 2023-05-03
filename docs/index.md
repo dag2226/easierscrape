@@ -3,19 +3,20 @@
 ## Basic Usage
 Install with pip: `pip install easierscrape`
 
-Import `Scraper` from `easierscrape` as seen below and then call class methods to scrape varying resources:
+Import `Scraper` from `easierscrape` and instantiate it with a url as seen below:
 ```python
 from easierscrape import Scraper
 
-scraper = Scraper()
+scraper = Scraper("https://quotes.toscrape.com/login")
 ```
+From there, call class methods to scrape varying resources.
 
 Usage examples:
 ```
->>> scraper.parse_text("https://quotes.toscrape.com/login")
+>>> scraper.parse_text()
 ["Quotes to Scrape", "Quotes to Scrape", "Login", "Username", "Password", "Quotes by:", "GoodReads.com", "Made with", "❤", "by", "Scrapinghub",]
 
->>> scraper.print_tree(scraper.tree_gen("https://toscrape.com/", 1))
+>>> scraper.print_tree(1)
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
@@ -25,7 +26,7 @@ https://toscrape.com
 ├── http://quotes.toscrape.com/tableful
 ├── http://quotes.toscrape.com/login
 ├── http://quotes.toscrape.com/search.aspx
-└── http://quotes.toscrape.com/random"
+└── http://quotes.toscrape.com/random
 ```
 
 ### Downloads
