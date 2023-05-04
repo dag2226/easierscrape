@@ -60,7 +60,7 @@ class Scraper:
             makedirs(dir)
         return dir
 
-    def _tree_gen_rec(self, url, maxdepth, tree, depth):
+    def _tree_gen_rec(self, url, maxdepth, tree, depth, blacklist, whitelist):
         if tree is None:
             url = url.replace("www.", "")
             if url.endswith("/"):
@@ -72,9 +72,11 @@ class Scraper:
             for a in BeautifulSoup(self.driver.page_source, "html.parser").find_all("a"):
                 try:
                     child_url = self._concat_urls(url, a.attrs["href"].replace("www.", ""))
-                    if find(tree.root, lambda node: node.url == child_url) is None:
-                        new_leaf = Node(child_url, url=child_url, parent=parent_node)
-                        tree = self._tree_gen_rec(child_url, maxdepth, new_leaf, depth + 1)
+                    domain = urlparse(child_url).netloc
+                    if (domain not in blacklist) and (len(whitelist) == 0 or domain in whitelist):
+                        if find(tree.root, lambda node: node.url == child_url) is None:
+                            new_leaf = Node(child_url, url=child_url, parent=parent_node)
+                            tree = self._tree_gen_rec(child_url, maxdepth, new_leaf, depth + 1, blacklist, whitelist)
                 except Exception:
                     pass
         return tree.root
@@ -224,19 +226,23 @@ class Scraper:
         """
         return [text for text in self.soup_url.stripped_strings]
 
-    def tree_gen(self, maxdepth):
-        """Generates a tree of depth=maxdepth starting at the Scraper url.
+    def tree_gen(self, maxdepth, blacklist=[], whitelist=[]):
+        """Generates a tree of depth=maxdepth starting at the Scraper url. If the blacklist argument
+        is used, none of the blacklisted domains will appear. If the whitelist argument is used, only
+        the whitelisted domains will appear.
 
         Args:
             maxdepth (int): The depth you want to generate the tree to.
+            blacklist (List[str]): A list of all domains to ignore in the tree generation
+            whitelist (List[str]): A list of only domains to include in the tree generation
 
         Returns:
             Node: Head node of an anytree hyperlink tree.
 
         """
-        return self._tree_gen_rec(self.url, maxdepth, None, 0)
+        return self._tree_gen_rec(self.url, maxdepth, None, 0, blacklist, whitelist)
 
-    def print_tree(self, maxdepth):
+    def print_tree(self, maxdepth, blacklist=[], whitelist=[]):
         """Prints a tree of depth=maxdepth starting at the Scraper url.
 
         Args:
@@ -244,6 +250,6 @@ class Scraper:
 
         """
         tree_print = ""
-        for pre, fill, node in RenderTree(self.tree_gen(maxdepth)):
+        for pre, fill, node in RenderTree(self.tree_gen(maxdepth, blacklist, whitelist)):
             tree_print += "%s%s\n" % (pre, node.name)
         print(tree_print[:-1])
