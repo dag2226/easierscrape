@@ -57,18 +57,19 @@ https://toscrape.com
 ## Command Line Usage
 When installed, you can invoke easierscrape from the command-line to generate a hyperlink tree, get a screenshot, download all image, txt, and pdf files, and scrape any tables for a given url and depth:
 ```
-usage: python -m easierscrape [-h] url depth
+usage: python -m easierscrape [-h] url depth download_path
 
 positional arguments:
-  url         the url to scrape
-  depth       the depth of the scrape tree
+  url            the url to scrape
+  depth          the depth of the scrape tree
+  download_path  the location to download files to
 
 optional arguments:
   -h, --help  show this help message and exit
 ```
 Usage example:
 ```
->>> python -m  easierscrape https://toscrape.com/ 1
+>>> python -m  easierscrape https://toscrape.com/ 1 example_down_path
 https://toscrape.com
 ├── http://books.toscrape.com
 ├── http://quotes.toscrape.com
