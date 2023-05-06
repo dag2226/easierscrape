@@ -8,23 +8,28 @@ from re import compile
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from shutil import rmtree
 from urllib.parse import urlparse
 from urllib.request import urlopen, url2pathname
 from uuid import uuid4
 
 
 class Scraper:
-    """Class for a scraper that targets `url`. A `Scraper` object acts as a "one-stop-shop" for
-    all scraping functions.
+    """Class for a scraper that targets a specific url and downloads all files to a download_path
+    relative to the current working directory. A `Scraper` object acts as a "one-stop-shop" for all
+    scraping functions.
     """
 
-    def __init__(self, url):
+    def __init__(self, url, download_path="easierscrape_downloads"):
         """
         Args:
             url (str): The url to scrape from.
+            download_path (str): The location to download parsed files to (defaults to
+                                 "easierscrape_downloads").
 
         """
         self.url = url
+        self.download_path = join(getcwd(), download_path)
 
         # hide GUI
         options = Options()
@@ -55,7 +60,7 @@ class Scraper:
         return child_url
 
     def _get_download_dir(self, type):
-        dir = join(getcwd(), "easierscrape_downloads", type, url2pathname(self.url)[3:])
+        dir = join(self.download_path, type, url2pathname(self.url)[3:])
         if not exists(dir):
             makedirs(dir)
         return dir
@@ -81,9 +86,20 @@ class Scraper:
                     pass
         return tree.root
 
+    def clear_downloads(self):
+        """Deletes the Scraper download directory.
+
+        Returns:
+            bool: True if the Scraper download directory exists and is deleted. False otherwise.
+
+        """
+        if exists(self.download_path):
+            rmtree(self.download_path)
+            return True
+        return False
+
     def get_screenshot(self):
-        """Downloads screenshot from the Scraper url to an "easierscrape_downloads" folder in the
-        current working directory.
+        """Downloads screenshot from the Scraper url to the Scraper download directory.
 
         Returns:
             bool: True
@@ -105,8 +121,7 @@ class Scraper:
         return self.soup_url.find_all("a")
 
     def parse_files(self, filetypes=[]):
-        """Downloads provided filetypes from the Scraper url to an "easierscrape_downloads" folder
-        in the current working directory.
+        """Downloads provided filetypes from the Scraper url to the Scraper download directory.
 
         Args:
             filetypes (List[str]): List of filetypes ("pdf", "txt", etc.) to scrape.
@@ -125,20 +140,19 @@ class Scraper:
             file_download_count = 0
             for file in self.soup_url.find_all("a", href=compile(r"(." + filetype + ")")):
                 try:
-                    fileUrl = self._concat_urls(self.url, file.attrs["href"])
-                    response = urlopen(fileUrl)
-                    with open(join(self._get_download_dir(filetype), basename(fileUrl)), "wb") as file:
-                        file.write(response.read())
-                    file.close()
-                    file_download_count += 1
+                    response = urlopen(self._concat_urls(self.url, file.attrs["href"]))
+                    if not exists(join(self._get_download_dir(filetype), basename(response.url))):
+                        with open(join(self._get_download_dir(filetype), basename(response.url)), "wb") as file:
+                            file.write(response.read())
+                        file.close()
+                        file_download_count += 1
                 except Exception:
                     pass
             file_download_list.append(file_download_count)
         return file_download_list
 
     def parse_images(self):
-        """Downloads all images from the Scraper url to an "easierscrape_downloads" folder in the
-        current working directory.
+        """Downloads all images from the Scraper url to the Scraper download directory.
 
         Returns:
             int: Number of images downloaded from url.
@@ -173,8 +187,7 @@ class Scraper:
         return out
 
     def parse_tables(self, output_type="csv"):
-        """Downloads all tables from the Scraper url to an "easierscrape_downloads" folder in the
-        current working directory.
+        """Downloads all tables from the Scraper url to the Scraper download directory.
 
         Supported output types are csv and xlsx (defaults to csv).
 
