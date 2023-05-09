@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to easierscrape’s documentation! &mdash; easierscrape 0.2.1 documentation</title>
+  <title>Welcome to easierscrape’s documentation! &mdash; easierscrape 0.2.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -70,6 +70,10 @@
              
   <section id="welcome-to-easierscrape-s-documentation">
 <h1>Welcome to easierscrape’s documentation!<a class="headerlink" href="#welcome-to-easierscrape-s-documentation" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>easierscrape is a library which helps users do some basic web scraping operations. Oftentimes when doing webscraping code is written and re-written with slightly changed parameters to fit the website to be scraped from. This library is an easy to use tool that can scrape essentials from websites (tables, links, files, etc.). It also has the ability to generate hyperlink trees using <a class="reference external" href="https://github.com/c0fec0de/anytree">anytree</a>.</p>
+</section>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading">¶</a></h2>
 <p>Install with pip: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">easierscrape</span></code></p>
@@ -85,18 +89,22 @@
 <span class="go">[&quot;Quotes to Scrape&quot;, &quot;Quotes to Scrape&quot;, &quot;Login&quot;, &quot;Username&quot;, &quot;Password&quot;, &quot;Quotes by:&quot;, &quot;GoodReads.com&quot;, &quot;Made with&quot;, &quot;❤&quot;, &quot;by&quot;, &quot;Scrapinghub&quot;,]</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">https://toscrape.com</span>
-<span class="go">├── http://books.toscrape.com</span>
-<span class="go">├── http://quotes.toscrape.com</span>
-<span class="go">├── http://quotes.toscrape.com/scroll</span>
-<span class="go">├── http://quotes.toscrape.com/js</span>
-<span class="go">├── http://quotes.toscrape.com/js-delayed</span>
-<span class="go">├── http://quotes.toscrape.com/tableful</span>
-<span class="go">├── http://quotes.toscrape.com/login</span>
-<span class="go">├── http://quotes.toscrape.com/search.aspx</span>
-<span class="go">└── http://quotes.toscrape.com/random</span>
+<span class="go">https://quotes.toscrape.com/login</span>
+<span class="go">├── https://quotes.toscrape.com</span>
+<span class="go">├── https://goodreads.com/quotes</span>
+<span class="go">└── https://scrapinghub.com</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">blacklist</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;quotes.toscrape.com&quot;</span><span class="p">])</span>
+<span class="go">https://quotes.toscrape.com/login</span>
+<span class="go">├── https://goodreads.com/quotes</span>
+<span class="go">└── https://scrapinghub.com</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scraper</span><span class="o">.</span><span class="n">get_screenshot</span><span class="p">()</span>
+<span class="go">True</span>
 </pre></div>
 </div>
+<p>Screenshot example:</p>
+<img alt="_images/screenshot.png" src="_images/screenshot.png" />
 <section id="downloads">
 <h3>Downloads<a class="headerlink" href="#downloads" title="Permalink to this heading">¶</a></h3>
 <p>Using <code class="docutils literal notranslate"><span class="pre">get_screenshot</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_files</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_images</span></code>, or <code class="docutils literal notranslate"><span class="pre">parse_tables</span></code> will result in downloads to the <code class="docutils literal notranslate"><span class="pre">download_path</span></code> specified in the <code class="docutils literal notranslate"><span class="pre">Scraper</span></code> instantiation. If no path is specified, it will default to downloading to an “easierscrape_downloads” folder.</p>
